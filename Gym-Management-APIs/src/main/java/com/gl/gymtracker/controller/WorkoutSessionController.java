@@ -8,43 +8,36 @@ import com.gl.gymtracker.service.WorkoutSessionService;
 
 import java.util.List;
 
-@RestController
+
 @RequestMapping("/v1/workouts")
 public class WorkoutSessionController {
 
-    @Autowired
+   
     private WorkoutSessionService service;
 
-    @PostMapping
-    public ResponseEntity<WorkoutSession> createWorkout(@RequestBody WorkoutSession session) {
-        WorkoutSession saved = service.save(session);
-        return ResponseEntity.status(201).body(saved);
+
+    public ResponseEntity<> createWorkout( ) {
+
     }
 
-    @GetMapping
-    public ResponseEntity<List<WorkoutSession>> getAllWorkouts() {
-        return ResponseEntity.ok(service.findAll());
+
+    public ResponseEntity<> getAllWorkouts() {
+      
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<WorkoutSession> getWorkoutById(@PathVariable Long id) {
-        return service.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+  
+    public ResponseEntity<> getWorkoutById() {
+        
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteWorkout(@PathVariable Long id) {
-        if (service.findById(id).isPresent()) {
-            service.deleteById(id);
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.notFound().build();
+    
+    public ResponseEntity<Void> deleteWorkout() {
+      
     }
 
-    @GetMapping("/top3")
-    public ResponseEntity<List<WorkoutSession>> getTop3Workouts() {
-        return ResponseEntity.ok(service.getTop3ByCaloriesBurned());
+    
+    public ResponseEntity<> getTop3Workouts() {
+     
     }
 }
 
