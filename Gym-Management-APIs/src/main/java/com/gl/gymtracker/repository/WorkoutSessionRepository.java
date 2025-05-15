@@ -8,9 +8,9 @@ import com.gl.gymtracker.model.WorkoutSession;
 
 import java.util.List;
 
-@Repository
+
 public interface WorkoutSessionRepository extends JpaRepository<WorkoutSession, Long> {
-    List<WorkoutSession> findTop3ByOrderByCaloriesBurnedDesc();
+  
 
 
 }
